@@ -8,7 +8,7 @@ emsdk_install: emsdk_portable/zips
 	./emsdk_portable/emsdk install sdk-incoming-64bit
 	./emsdk_portable/emsdk activate sdk-incoming-64bit
 
-emsdk_portable/zips: emsdk_portable/
+emsdk_portable/zips: emsdk_portable
 	./emsdk_portable/emsdk update
 
 emsdk_portable: emsdk-portable.tar.gz
