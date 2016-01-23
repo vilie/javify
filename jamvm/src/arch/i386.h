@@ -41,46 +41,7 @@
 extern void setDoublePrecision();
 #define FPU_HACK setDoublePrecision()
 
-#ifndef __EMSCRIPTEN__
-#define COMPARE_AND_SWAP_32(addr, old_val, new_val) \
-({                                                  \
-    char result;                                    \
-    __asm__ __volatile__ ("                         \
-        lock;                                       \
-        cmpxchgl %4, %1;                            \
-        sete %0"                                    \
-    : "=q" (result), "=m" (*addr)                   \
-    : "m" (*addr), "a" (old_val), "r" (new_val)     \
-    : "memory");                                    \
-    result;                                         \
-})
-
-#ifdef USE_CMPXCHG8B
-#define COMPARE_AND_SWAP_64(addr, old_val, new_val) \
-({                                                  \
-    int ov_hi = old_val >> 32;                      \
-    int ov_lo = old_val & 0xffffffff;               \
-    int nv_hi = new_val >> 32;                      \
-    int nv_lo = new_val & 0xffffffff;               \
-    char result;                                    \
-    __asm__ __volatile__ ("                         \
-        lock;                                       \
-        cmpxchg8b %1;                               \
-        sete %0"                                    \
-    : "=q" (result)                                 \
-    : "m" (*addr), "d" (ov_hi), "a" (ov_lo),        \
-      "c" (nv_hi), "b" (nv_lo)                      \
-    : "memory");                                    \
-    result;                                         \
-})
-#endif
-
-#define COMPARE_AND_SWAP(addr, old_val, new_val)    \
-        COMPARE_AND_SWAP_32(addr, old_val, new_val)
-#else
 #define COMPARE_AND_SWAP(addr, old_val, new_val) new_val
-#endif
-
 
 #define __GEN_REL_JMP(target_addr, patch_addr, opcode,       \
                       type, patch_size)                      \
