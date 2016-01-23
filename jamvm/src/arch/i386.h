@@ -41,6 +41,7 @@
 extern void setDoublePrecision();
 #define FPU_HACK setDoublePrecision()
 
+#ifndef __EMSCRIPTEN__
 #define COMPARE_AND_SWAP_32(addr, old_val, new_val) \
 ({                                                  \
     char result;                                    \
@@ -76,6 +77,10 @@ extern void setDoublePrecision();
 
 #define COMPARE_AND_SWAP(addr, old_val, new_val)    \
         COMPARE_AND_SWAP_32(addr, old_val, new_val)
+#else
+#define COMPARE_AND_SWAP(addr, old_val, new_val) new_val
+#endif
+
 
 #define __GEN_REL_JMP(target_addr, patch_addr, opcode,       \
                       type, patch_size)                      \
