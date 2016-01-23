@@ -1,2 +1,3 @@
 #!/bin/bash
-emconfigure ./configure
+emconfigure ./configure --disable-zip --host=i386-linux
+emmake make
