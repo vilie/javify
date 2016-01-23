@@ -4,4 +4,4 @@
 # emconfigure ./configure
 
 ./configure CC=emcc --disable-gtk-peer --disable-gjdoc
-
+make
