@@ -1,3 +1,5 @@
 emscripten/emsdk_portable/
 emscripten/emsdk-portable.tar.gz
+jamvm/src/os
+*.lo
 
