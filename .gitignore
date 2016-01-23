@@ -1,4 +1,3 @@
-emscripten/emsdk_portable/clang
-emscripten/emsdk_portable/emscripten
-emscripten/emsdk_portable/node
+emscripten/emsdk_portable/
+emscripten/emsdk-portable.tar.gz
 
