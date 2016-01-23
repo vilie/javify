@@ -146,7 +146,7 @@ get_method_id(JNIEnv *env,  jclass clazz, const char *name,
 inline void
 JCL_print_buffer(JNIEnv *env __attribute__((__unused__)), struct JCL_buffer *buf)
 {
-  fprintf (stderr, "Buffer - type: %d, ptr: %p\n", buf->type, buf->ptr);
+  fprintf (stderr, "Buffer - type: %d, ptr: %s\n", buf->type, buf->ptr);
 }
 
 
