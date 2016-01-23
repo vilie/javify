@@ -61,6 +61,7 @@ int nativeExtraArg(MethodBlock *mb) {
 u4 *callJNIMethod(void *env, Class *class, char *sig, int ret_type,
                   u4 *ostack, unsigned char *f, int args) {
 
+    /*
     int i;
     u4 *sp;
     u4 method_args[args + (class ? 2 : 1)];
@@ -111,7 +112,7 @@ u4 *callJNIMethod(void *env, Class *class, char *sig, int ret_type,
             *ostack++ = (*(u4 (*)())f)();
             break;
     }
-
-    return ostack;
+    */
+    return ostack; /* I wonder how this looks like */
 }
 #endif
