@@ -1294,9 +1294,11 @@ int initialiseThreadStage1(InitArgs *args) {
     pthread_attr_setdetachstate(&attributes, PTHREAD_CREATE_DETACHED);
 
     /* Ensure the thread stacks are at least 1 megabyte in size */
+#ifndef __EMSCRIPTEN__
     pthread_attr_getstacksize(&attributes, &size);
     if(size < 1*MB)
         pthread_attr_setstacksize(&attributes, 1*MB);
+#endif
 
     monitorInit(&sleep_mon);
     initHashTable(thread_id_map, HASHTABSZE, TRUE);
