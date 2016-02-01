@@ -12,7 +12,7 @@ Feel free to contribute!
 
 3. Compile JamVM via `cd jamvm && ./javify-build.sh`
 
-4. Link them together via `cd jamvm && emcc ./lib/libjavalang.so ./lib/libjvm.so src/jam.o`
+4. Link them together via `cd jamvm && emcc ./lib/libjavalang.so ./lib/libjvm.so src/jam.o -s TOTAL_MEMORY=167772160`
 
 5. Test it `js a.out.js`
 
