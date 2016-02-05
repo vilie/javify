@@ -6,7 +6,7 @@ Feel free to contribute!
 
 ## Installation
 
-1. Install emscripten by `apt-get install emscripten` or goto emscripten folder and `make` (this option requires 20GB of free space)
+1. Install emscripten by `apt-get install emscripten` or goto emscripten folder and `make` (this option requires 20GB of free space and 8GB of RAM)
 
 2. Compile classpath via `cd classpath && ./javify-build.sh`
 
